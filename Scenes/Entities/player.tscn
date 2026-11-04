@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c8mvy480uh00"]
+
+[ext_resource type="Script" uid="uid://mgy6v065kfav" path="res://Scripts/Entities/player.gd" id="1_blnjl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11ei8"]
+size = Vector2(8, 18)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_11ei8"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1295105018]
+z_index = 1
+collision_layer = 4
+script = ExtResource("1_blnjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956074082]
+shape = SubResource("RectangleShape2D_11ei8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=133393506]
+zoom = Vector2(1.79, 1.79)
+position_smoothing_enabled = true
+
+[node name="Sprites" type="Node2D" parent="." unique_id=919946597]
+
+[node name="PlayerOG" type="Sprite2D" parent="Sprites" unique_id=1617662843]
+position = Vector2(-9.536743e-07, 0)
+rotation = 3.1415927
+scale = Vector2(7.851919, -17.11419)
+texture = SubResource("CanvasTexture_11ei8")
+
+[node name="Guard" type="Sprite2D" parent="Sprites" unique_id=2096150372]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-9.536743e-07, 0)
+rotation = 3.1415927
+scale = Vector2(7.851919, -17.11419)
+texture = SubResource("CanvasTexture_11ei8")

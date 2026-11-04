@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ch6rydaivajmw"]
+
+[ext_resource type="Texture2D" uid="uid://cckjp4hbnkd20" path="res://icon.svg" id="1_vk57k"]
+[ext_resource type="PackedScene" uid="uid://c8mvy480uh00" path="res://Scenes/Entities/player.tscn" id="2_8ffim"]
+[ext_resource type="PackedScene" uid="uid://bd1ej8l3wrp3k" path="res://Scenes/Entities/guard.tscn" id="3_xfk5q"]
+
+[node name="Level 1" type="Node2D" unique_id=272918331]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=20978644]
+z_index = -1
+position = Vector2(122.00006, -88)
+scale = Vector2(10.9296875, 5.84375)
+texture = ExtResource("1_vk57k")
+
+[node name="Player" parent="." unique_id=1295105018 instance=ExtResource("2_8ffim")]
+
+[node name="Guard" parent="." unique_id=2115082261 instance=ExtResource("3_xfk5q")]

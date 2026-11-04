@@ -1,0 +1,75 @@
+{
+	"categories": [
+		{
+			"uuid": "d19ffdd6-3359-4966-bc14-1923438edef8",
+			"title": "Task",
+			"color": "87abe3"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "bf4da9ab-1b48-42b0-aa32-75eef5222c2b",
+			"title": "Todo",
+			"tasks": [
+				"40cb4e30-916e-4f3b-9bc5-db776f14448c",
+				"be6d2722-7ca5-4a06-b3f6-15bc5a52ffa0",
+				"d94f1ed9-1510-4ded-95e7-87581f9f9263"
+			]
+		},
+		{
+			"uuid": "7cc3c062-2ade-4f95-a101-0acce9a44f7e",
+			"title": "Doing",
+			"tasks": [
+				"b4f3d3d6-6e5c-4124-8220-146f746fc5e7"
+			]
+		},
+		{
+			"uuid": "bc643834-a649-4890-9c88-4c4c47b88cbb",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "40cb4e30-916e-4f3b-9bc5-db776f14448c",
+			"title": "Enemy",
+			"description": "",
+			"category": "d19ffdd6-3359-4966-bc14-1923438edef8",
+			"steps": []
+		},
+		{
+			"uuid": "be6d2722-7ca5-4a06-b3f6-15bc5a52ffa0",
+			"title": "Art",
+			"description": "",
+			"category": "d19ffdd6-3359-4966-bc14-1923438edef8",
+			"steps": []
+		},
+		{
+			"uuid": "d94f1ed9-1510-4ded-95e7-87581f9f9263",
+			"title": "Shifting",
+			"description": "",
+			"category": "d19ffdd6-3359-4966-bc14-1923438edef8",
+			"steps": []
+		},
+		{
+			"uuid": "b4f3d3d6-6e5c-4124-8220-146f746fc5e7",
+			"title": "Enemy",
+			"description": "",
+			"category": "d19ffdd6-3359-4966-bc14-1923438edef8",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"bf4da9ab-1b48-42b0-aa32-75eef5222c2b"
+			],
+			[
+				"7cc3c062-2ade-4f95-a101-0acce9a44f7e"
+			],
+			[
+				"bc643834-a649-4890-9c88-4c4c47b88cbb"
+			]
+		]
+	}
+}

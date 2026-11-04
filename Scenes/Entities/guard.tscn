@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bd1ej8l3wrp3k"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_11ei8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11ei8"]
+size = Vector2(8, 18)
+
+[node name="Guard" type="CharacterBody2D" unique_id=2115082261]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1840857595]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-2.9802322e-08, 0)
+scale = Vector2(8, 18)
+texture = SubResource("CanvasTexture_11ei8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009155037]
+shape = SubResource("RectangleShape2D_11ei8")
