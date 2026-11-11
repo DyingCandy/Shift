@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
 var speed : int = 250
-var shifted : bool
-var shifter
-var guard : bool
+var accel : int = 100
 
 
 func _physics_process(delta: float) -> void:
@@ -12,6 +10,6 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.y = move_toward(velocity.y, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, accel)
+		velocity.y = move_toward(velocity.y, 0, accel)
 	move_and_slide()
