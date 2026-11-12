@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mgy6v065kfav" path="res://Scripts/Entities/player.gd" id="1_blnjl"]
 [ext_resource type="Texture2D" uid="uid://d1mr6464ansqv" path="res://Assets/Entities/Soul_player.png" id="2_nqm6o"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_qbyki"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j8pnj"]
 
@@ -76,17 +77,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1295105018]
+[node name="Player" type="CharacterBody2D" unique_id=1295105018 groups=["Player"]]
 z_index = 1
+scale = Vector2(0.55, 0.55)
 collision_layer = 4
 script = ExtResource("1_blnjl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956074082]
 shape = SubResource("CircleShape2D_j8pnj")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=133393506]
-zoom = Vector2(1.79, 1.79)
-position_smoothing_enabled = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=996835567]
 sprite_frames = SubResource("SpriteFrames_11ei8")
@@ -95,14 +93,23 @@ autoplay = "Idle"
 frame_progress = 0.58941215
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D" unique_id=775985767]
-amount = 6
+amount = 9
 lifetime = 0.25
 speed_scale = 0.7
 randomness = 1.0
 emission_shape = 4
-emission_points = PackedVector2Array(18.95, 0, 0, 18.95, -18.95, 0, 0, -18.95)
+emission_points = PackedVector2Array(16.935, 0, 0, 12.66, -21.9, 0, 0, -18.06)
 emission_colors = PackedColorArray()
 spread = 180.0
 gravity = Vector2(0, 0)
 orbit_velocity_max = 0.7
 color = Color(0.11764706, 0, 0.19215687, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=347522516]
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1579524244]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_qbyki")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
