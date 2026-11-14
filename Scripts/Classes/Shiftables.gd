@@ -5,7 +5,7 @@ class_name Controllable
 @onready var phantom_camera_2d: PhantomCamera2D = $PhantomCamera2D
 @onready var player: CharacterBody2D = $Player
 var time_elapsed : float = 0.0
-var target_time : float = 1.0
+var target_time : float = 0.3
 
 @export var speed : int = 165
 var accel : int = 100
@@ -35,14 +35,7 @@ func handle_uncontrolled(_delta: float) -> void:
 	pass
 
 func handle_controlled(_delta: float) -> void:
-	var direction = Input.get_vector("left", "right", "up", "down")
-	if direction:
-		velocity = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, accel)
-		velocity.y = move_toward(velocity.y, 0, accel)
-		
-	move_and_slide()
+	pass
 
 func shift_to_soul():
 	is_controlled = false
