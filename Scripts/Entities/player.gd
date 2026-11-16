@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
-@export var speed : int = 200
+@export var speed : int = 150
 var accel : int = 100
 @export var is_soul_controlled : bool = true
 @onready var player: CharacterBody2D = $"."
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 @onready var phantom_camera_2d: PhantomCamera2D = $"../PhantomCamera2D"
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	pass
@@ -42,7 +44,9 @@ func _physics_process(delta: float) -> void:
 	#Movement
 	
 	if is_soul_controlled == true:
-		sprite_2d.show()
+#		sprite_2d.show()
+		point_light_2d.show()
+		cpu_particles_2d.emitting = true
 		collision_shape_2d.disabled = false
 		var direction = Input.get_vector("left", "right", "up", "down")
 		if direction:
@@ -53,8 +57,10 @@ func _physics_process(delta: float) -> void:
 			
 		move_and_slide()
 	elif is_soul_controlled == false:
-		sprite_2d.hide()
+		#sprite_2d.hide()
+		cpu_particles_2d.emitting = false
 		collision_shape_2d.disabled = true
+		point_light_2d.hide()
 	
 	
 	#Shifting

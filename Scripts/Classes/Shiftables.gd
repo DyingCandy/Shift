@@ -7,7 +7,7 @@ class_name Controllable
 var time_elapsed : float = 0.0
 var target_time : float = 0.3
 
-@export var speed : int = 165
+
 var accel : int = 100
 
 func _ready() -> void:
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_controlled == false:
-		pass
+		handle_uncontrolled(delta)
 		
 	elif is_controlled == true:
 		time_elapsed += delta

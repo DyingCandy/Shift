@@ -1,81 +1,29 @@
 [gd_scene format=3 uid="uid://c8mvy480uh00"]
 
 [ext_resource type="Script" uid="uid://mgy6v065kfav" path="res://Scripts/Entities/player.gd" id="1_blnjl"]
-[ext_resource type="Texture2D" uid="uid://d1mr6464ansqv" path="res://Assets/Entities/Soul_player.png" id="2_nqm6o"]
+[ext_resource type="Texture2D" uid="uid://cotfug6h2gyku" path="res://Assets/Entities/Smoke_Player.png" id="2_svftf"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_qbyki"]
 
+[sub_resource type="Gradient" id="Gradient_svftf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tsxsc"]
+gradient = SubResource("Gradient_svftf")
+width = 20
+height = 20
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_a1rq5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.73188406), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_tsxsc"]
+offsets = PackedFloat32Array(0.18346775, 0.9979839)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.24705882)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_j8pnj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbyki"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svftf"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a1rq5"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yqx0t"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ofjh0"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hnfo"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y18yp"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85s6f"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_14y0q"]
-atlas = ExtResource("2_nqm6o")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_11ei8"]
-animations = [{
-"frames": [{
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_qbyki")
-}, {
-"duration": 1.1,
-"texture": SubResource("AtlasTexture_svftf")
-}, {
-"duration": 0.9,
-"texture": SubResource("AtlasTexture_a1rq5")
-}, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_yqx0t")
-}, {
-"duration": 1.1,
-"texture": SubResource("AtlasTexture_ofjh0")
-}, {
-"duration": 0.7,
-"texture": SubResource("AtlasTexture_2hnfo")
-}, {
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_y18yp")
-}, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_85s6f")
-}, {
-"duration": 0.7,
-"texture": SubResource("AtlasTexture_14y0q")
-}],
-"loop": 1,
-"name": &"Idle",
-"speed": 5.0
-}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1295105018 groups=["Player"]]
 z_index = 1
@@ -83,27 +31,28 @@ scale = Vector2(0.55, 0.55)
 collision_layer = 4
 script = ExtResource("1_blnjl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956074082]
-shape = SubResource("CircleShape2D_j8pnj")
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=752756253]
+color = Color(1, 1, 1, 0.6392157)
+energy = 0.6
+texture = SubResource("GradientTexture2D_tsxsc")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=996835567]
-sprite_frames = SubResource("SpriteFrames_11ei8")
-animation = &"Idle"
-autoplay = "Idle"
-frame_progress = 0.58941215
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D" unique_id=775985767]
-amount = 9
-lifetime = 0.25
-speed_scale = 0.7
-randomness = 1.0
-emission_shape = 4
-emission_points = PackedVector2Array(16.935, 0, 0, 12.66, -21.9, 0, 0, -18.06)
-emission_colors = PackedColorArray()
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1222242884]
+amount = 16
+texture = ExtResource("2_svftf")
+randomness = 0.51
+emission_shape = 1
+emission_sphere_radius = 15.6
 spread = 180.0
 gravity = Vector2(0, 0)
-orbit_velocity_max = 0.7
-color = Color(0.11764706, 0, 0.19215687, 1)
+initial_velocity_max = 20.0
+scale_amount_min = 0.2
+scale_amount_max = 0.7
+scale_amount_curve = SubResource("Curve_a1rq5")
+color = Color(1, 1, 1, 0.8)
+color_ramp = SubResource("Gradient_tsxsc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1956074082]
+shape = SubResource("CircleShape2D_j8pnj")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=347522516]
 top_level = true
