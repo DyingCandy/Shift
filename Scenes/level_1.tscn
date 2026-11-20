@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_6444e"]
 [ext_resource type="Texture2D" uid="uid://cckjp4hbnkd20" path="res://icon.svg" id="4_evi0p"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_evi0p"]
+[ext_resource type="PackedScene" uid="uid://7iqdux4frda4" path="res://Scenes/Activators/button.tscn" id="6_evi0p"]
+[ext_resource type="Script" uid="uid://61hpp3leloag" path="res://Scenes/test.gd" id="6_lsmp6"]
 
 [sub_resource type="Resource" id="Resource_lsmp6"]
 script = ExtResource("5_evi0p")
@@ -33,6 +35,13 @@ z_index = -1
 position = Vector2(14.000008, 12)
 scale = Vector2(3.796875, 3.140625)
 texture = ExtResource("4_evi0p")
+script = ExtResource("6_lsmp6")
 
 [node name="Guard" parent="." unique_id=2115082261 instance=ExtResource("3_xfk5q")]
 position = Vector2(56, -3)
+
+[node name="Button" parent="." unique_id=1331608656 instance=ExtResource("6_evi0p")]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(287, 44)
+
+[connection signal="activated" from="Button" to="Icon" method="_on_button_activated"]

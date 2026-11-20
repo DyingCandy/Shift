@@ -17,7 +17,7 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Gradient" id="Gradient_qbyki"]
 offsets = PackedFloat32Array(0.003012048, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0.48274636, 0.00016956464, 0.48475116, 1, 0.8082791, 0.0005425298, 0.8148622, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wgnvv"]
 gradient = SubResource("Gradient_qbyki")
@@ -42,13 +42,14 @@ collision_layer = 4
 script = ExtResource("1_blnjl")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=752756253]
+scale = Vector2(0.7, 0.7)
 color = Color(0.30983922, 7.0752205e-05, 0.3136559, 1)
 energy = 16.0
 texture = SubResource("GradientTexture2D_tsxsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="PointLight2D" unique_id=398200593]
 position = Vector2(-1.9073486e-06, 0)
-scale = Vector2(0.461, 0.461)
+scale = Vector2(0.386, 0.386)
 texture = SubResource("GradientTexture2D_wgnvv")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1222242884]
