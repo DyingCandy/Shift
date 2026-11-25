@@ -329,15 +329,20 @@ size = Vector2(25, 25)
 
 [node name="Metal Door" type="StaticBody2D" unique_id=401734]
 z_index = -1
+position = Vector2(0, -4)
+scale = Vector2(0.8, 0.8)
 collision_layer = 16
 collision_mask = 6
 script = ExtResource("1_b3ib5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1080748747]
+position = Vector2(0, -4)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_tsxsc")
 animation = &"Closed"
 autoplay = "Closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94895288]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, -4)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_11ei8")
