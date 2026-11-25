@@ -82,6 +82,7 @@ shift={
 2d_physics/layer_2="Shiftables"
 2d_physics/layer_3="Player"
 2d_physics/layer_4="Activators"
+2d_physics/layer_5="Doors"
 
 [physics]
 

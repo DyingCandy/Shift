@@ -39,6 +39,7 @@ colors = PackedColorArray(0.3351275, 8.1653816e-05, 0.33838245, 1, 0.96845764, 0
 z_index = 1
 scale = Vector2(0.55, 0.55)
 collision_layer = 4
+collision_mask = 17
 script = ExtResource("1_blnjl")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=752756253]

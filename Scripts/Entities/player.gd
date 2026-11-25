@@ -12,6 +12,9 @@ var accel : int = 100
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+var target_time: float = 0.3
+var time_elapsed: float = 0.0
+
 func _ready() -> void:
 	pass
 
@@ -44,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	#Movement
 	
 	if is_soul_controlled == true:
-#		sprite_2d.show()
+		time_elapsed += delta
 		point_light_2d.show()
 		cpu_particles_2d.emitting = true
 		collision_shape_2d.disabled = false
@@ -57,15 +60,15 @@ func _physics_process(delta: float) -> void:
 			
 		move_and_slide()
 	elif is_soul_controlled == false:
-		#sprite_2d.hide()
 		cpu_particles_2d.emitting = false
 		collision_shape_2d.disabled = true
 		point_light_2d.hide()
 	
 	
 	#Shifting
-	if Input.is_action_just_pressed("shift"):
+	if Input.is_action_just_pressed("shift") and time_elapsed >= target_time:
 		shift()
+		time_elapsed = 0
 	
 
 func soul_controlled(new_position : Vector2):

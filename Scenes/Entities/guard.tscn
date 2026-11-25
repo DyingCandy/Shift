@@ -111,6 +111,7 @@ animations = [{
 
 [node name="Guard" type="CharacterBody2D" unique_id=2115082261 groups=["Shiftable"]]
 collision_layer = 2
+collision_mask = 25
 script = ExtResource("1_udklh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009155037]
