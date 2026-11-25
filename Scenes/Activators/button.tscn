@@ -27,6 +27,7 @@ animations = [{
 }]
 
 [node name="Button" type="Area2D" unique_id=1331608656]
+z_index = -1
 scale = Vector2(0.295, 0.295)
 collision_layer = 8
 collision_mask = 2

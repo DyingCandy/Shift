@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://rrgi6lcnnbo2"]
+
+[ext_resource type="Script" uid="uid://dgitvxl50gunk" path="res://Scenes/global.gd" id="1_6yl2a"]
+
+[node name="Global" type="Node" unique_id=829642187]
+script = ExtResource("1_6yl2a")
+
+[node name="NextLevel" type="Timer" parent="." unique_id=693830758]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="NextLevel" to="." method="_on_end_timeout"]

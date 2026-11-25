@@ -6,16 +6,31 @@
 [ext_resource type="Texture2D" uid="uid://cckjp4hbnkd20" path="res://icon.svg" id="4_evi0p"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_evi0p"]
 [ext_resource type="PackedScene" uid="uid://7iqdux4frda4" path="res://Scenes/Activators/button.tscn" id="6_evi0p"]
-[ext_resource type="Script" uid="uid://61hpp3leloag" path="res://Scenes/test.gd" id="6_lsmp6"]
 [ext_resource type="PackedScene" uid="uid://clbhmv2xot0r" path="res://Scenes/Doors/metal_door.tscn" id="7_xrdnt"]
+[ext_resource type="PackedScene" uid="uid://c1iv2sua6gt0t" path="res://Scenes/Activators/next_level_activator.tscn" id="8_jv26f"]
 
 [sub_resource type="Resource" id="Resource_lsmp6"]
 script = ExtResource("5_evi0p")
 
-[node name="Level 1" type="Node2D" unique_id=272918331]
+[sub_resource type="GDScript" id="GDScript_rb0md"]
+script/source = "extends Sprite2D
 
-[node name="Guard2" parent="." unique_id=759331372 instance=ExtResource("3_xfk5q")]
-position = Vector2(29, -33)
+
+
+func _on_button_activated() -> void:
+	self_modulate = Color(255,0,0,1)
+"
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jv26f"]
+scenes/1/scene = ExtResource("6_evi0p")
+scenes/2/scene = ExtResource("8_jv26f")
+scenes/4/scene = ExtResource("7_xrdnt")
+scenes/5/scene = ExtResource("3_xfk5q")
+
+[sub_resource type="TileSet" id="TileSet_wgnvv"]
+sources/0 = SubResource("TileSetScenesCollectionSource_jv26f")
+
+[node name="Level 1" type="Node2D" unique_id=272918331]
 
 [node name="Player" parent="." unique_id=1295105018 instance=ExtResource("2_8ffim")]
 
@@ -36,16 +51,9 @@ z_index = -1
 position = Vector2(14.000008, 12)
 scale = Vector2(3.796875, 3.140625)
 texture = ExtResource("4_evi0p")
-script = ExtResource("6_lsmp6")
+script = SubResource("GDScript_rb0md")
 
-[node name="Guard" parent="." unique_id=2115082261 instance=ExtResource("3_xfk5q")]
-position = Vector2(56, -3)
+[node name="Tilemap" type="Node2D" parent="." unique_id=252065114]
 
-[node name="Bg" type="TileMapLayer" parent="." unique_id=746613516]
-
-[node name="Metal Door" parent="." unique_id=401734 instance=ExtResource("7_xrdnt")]
-position = Vector2(152, -31)
-
-[node name="Button" parent="." unique_id=1331608656 node_paths=PackedStringArray("door") instance=ExtResource("6_evi0p")]
-position = Vector2(136, 12)
-door = NodePath("../Metal Door")
+[node name="Bg" type="TileMapLayer" parent="Tilemap" unique_id=746613516]
+tile_set = SubResource("TileSet_wgnvv")

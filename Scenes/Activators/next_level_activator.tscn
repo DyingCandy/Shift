@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c1iv2sua6gt0t"]
+
+[ext_resource type="Script" uid="uid://despgyrp8bsj8" path="res://next_level_activator.gd" id="1_x2jct"]
+[ext_resource type="Texture2D" uid="uid://d2lauccon44vo" path="res://Assets/Doors/Portal.png" id="2_5uldy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnvv"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2jct"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiwx2"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea1cn"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvipe"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uldy"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edaok"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kv31"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cca47"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7flo"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3djfb"]
+atlas = ExtResource("2_5uldy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgnvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2jct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiwx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea1cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvipe")
+}],
+"loop": 1,
+"name": &"Wooshie",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uldy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edaok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kv31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cca47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7flo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3djfb")
+}],
+"loop": 0,
+"name": &"Wooshie away",
+"speed": 9.0
+}]
+
+[node name="Next Level Activator" type="Area2D" unique_id=1029751676]
+z_index = -1
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_x2jct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014905935]
+shape = SubResource("RectangleShape2D_wgnvv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1379336926]
+sprite_frames = SubResource("SpriteFrames_wgnvv")
+animation = &"Wooshie"
+autoplay = "Wooshie"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
